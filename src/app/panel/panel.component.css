@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+.Board{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}

@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="panel.component.css" />
+
+    <h1>Whack a mole!</h1>
+
+    <div class="Board">
+      <div class="Clock">Time remaining: {{ state.timer }}
+     </div>
+    
+      <div class="Points">Points: <span id="score">0</span>
+      </div>
+    
+      <button (click)="startGame()">Start Game!</button>
+    </div>

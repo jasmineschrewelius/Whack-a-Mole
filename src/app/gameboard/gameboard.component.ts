@@ -1,5 +1,6 @@
 import { createMayBeForwardRefExpression } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-gameboard',
@@ -7,26 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./gameboard.component.css']
 })
 export class GameboardComponent {
-  
-  /*
 
-  randomBox() {
-    let lastBox;
-    const boxes = document.querySelectorAll('.box')
-    const idx = Math.floor(Math.random() * boxes.length);
-    const box = boxes[idx];
-    if ( box === lastBox) {
-      return this.randomBox();
-    }
-    lastBox = box;
-    return box;
-  }
- 
+  constructor(public __gameService:GameService) {}  // contact with Game Service
 
-  popUp() {
-    const box = randomBox(); 
-
-  }
-  */ 
 }
 

@@ -12,13 +12,17 @@ export class PanelComponent {
 
   state: State = { timer: 0 };            // attribute containing state
 
-  constructor(private _state: GameService) {
-   this.state = this._state.state;
+  constructor(public _gameService: GameService) {
+   this.state = this._gameService.state;
   }
-  startGame(){
-    this._state.startTimer() // start startTimer metod
-   
 
+  startGame(){
+    this._gameService.startTimer() // start startTimer metod
+
+
+    if ( this._gameService.state.timer > 1) {  // if the timer is more than 1, start randombox
+      this._gameService.randomBox()  // start randomBox metod
+    }
     setTimeout(() => timeUp = true, 60000)
   }
 }

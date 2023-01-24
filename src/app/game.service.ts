@@ -6,11 +6,9 @@ import { State } from './state';
 })
 export class GameService {
 
-  state: State = { timer: 5 }            // attribute containing state
+  state: State = { timer: 60 }            // attribute containing state
 
   maximumMoles: number= 0;
-
-  maximumTime: number= 0;
 
   scorePoints: number= 0;
   
@@ -20,7 +18,7 @@ export class GameService {
 
   startTimer() {
   
-    if (this.state.timer <= 0 , this.interval != null) return; // dont start if timer is 0 or if it already is running
+    if (this.state.timer <= 60 , this.interval != null) return; // dont start if timer is 0 or if it already is running
       this.interval = setInterval(() => {    // start interval
         this.state.timer--;                  // timer - 1 
         this.randomBox()                     // calls randomBox()
@@ -43,7 +41,7 @@ randomBox() {
     const idx = Math.floor(Math.random() * 25);  // randomize number between 0 - 25
   this.molegrid[idx] = !this.molegrid[idx]   // is it true = false, is it false = true
   this.maximumMoles++;                       // counts moles
-  setInterval(() => this.popDown(idx), 4000)    // interval that calls popDown and sets for 4 sek
+  setTimeout(() => this.popDown(idx), 4000)    // interval that calls popDown and sets for 4 sek
   }
 }
 
@@ -54,11 +52,8 @@ pointClick(idx:number) {
 }
 
 popDown(idx:number) {
-   if (this.maximumTime = 4000) {   // if maximumTime = 4 sek, do the next thing
-    this.molegrid[idx] = !this.molegrid[idx] // true = false, false = true. It hides the mole if it is shown
+    this.molegrid[idx]= false; //  It hides the mole if it is shown
    }
-}
-
 }
 
   

@@ -25,6 +25,7 @@ export class GameService {
         if(this.state.timer <= 0) {          // if timer is 0, stop
           clearInterval(this.interval);      // stops interval
           this.interval = null;              // clear interval
+          this.state.timer = 60;
       }
     }, 1000);
 }
@@ -39,9 +40,9 @@ molegrid : boolean [] = [     // Array with 25 moles set to false to create the 
 randomBox() {
   if ( this.maximumMoles < 3 ) {      // keep going til the number of moles is 3 showing on board
     const idx = Math.floor(Math.random() * 25);  // randomize number between 0 - 25
-  this.molegrid[idx] = !this.molegrid[idx]   // is it true = false, is it false = true
-  this.maximumMoles++;                       // counts moles
-  setTimeout(() => this.popDown(idx), 4000)    // interval that calls popDown and sets for 4 sek
+    this.molegrid[idx] = !this.molegrid[idx]   // is it true = false, is it false = true
+    this.maximumMoles++;                       // counts moles
+    setTimeout(() => this.popDown(idx), 4000)    //  calls popDown and sets for 4 sek
   }
 }
 
@@ -52,6 +53,7 @@ pointClick(idx:number) {
 }
 
 popDown(idx:number) {
+    this.maximumMoles--;                        // counts down the mole
     this.molegrid[idx]= false; //  It hides the mole if it is shown
    }
 }

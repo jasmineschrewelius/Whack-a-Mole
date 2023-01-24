@@ -6,7 +6,7 @@
       <div class="Clock">Time remaining: {{ state.timer }}
      </div>
     
-      <div class="Points">Points: <span id="score">0</span>
+      <div class="Points">Points: {{this._gameService.scorePoints}}
       </div>
     
       <button (click)="startGame()">Start Game!</button>

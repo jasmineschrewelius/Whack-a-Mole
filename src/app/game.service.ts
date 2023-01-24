@@ -6,7 +6,7 @@ import { State } from './state';
 })
 export class GameService {
 
-  state: State = { timer: 60 }            // attribute containing state
+  state: State = { timer: 5 }            // attribute containing state
 
   maximumMoles: number= 0;
 
@@ -23,31 +23,23 @@ export class GameService {
     if (this.state.timer <= 0 , this.interval != null) return; // dont start if timer is 0 or if it already is running
       this.interval = setInterval(() => {    // start interval
         this.state.timer--;                  // timer - 1 
-        this.randomBox()
+        this.randomBox()                     // calls randomBox()
         if(this.state.timer <= 0) {          // if timer is 0, stop
           clearInterval(this.interval);      // stops interval
           this.interval = null;              // clear interval
       }
     }, 1000);
 }
-molegrid : boolean [] = [     // Array with booleans moles set to false
+molegrid : boolean [] = [     // Array with 25 moles set to false to create the grid with 25 boxes one mole in each
   false,false,false,false,false,
   false,false,false,false,false,
   false,false,false,false,false,
   false,false,false,false,false,
   false,false,false,false,false,
 ]
-/*
-timergrid : NodeJS.Timer [] = [     // Array with timers
-  ,,,,,
-  ,,,,,
-  ,,,,,
-  ,,,,,
-  ,,,,,
-]
-*/
+
 randomBox() {
-  if ( this.maximumMoles < 3 ) {      // keep going til the number of moles is 3
+  if ( this.maximumMoles < 3 ) {      // keep going til the number of moles is 3 showing on board
     const idx = Math.floor(Math.random() * 25);  // randomize number between 0 - 25
   this.molegrid[idx] = !this.molegrid[idx]   // is it true = false, is it false = true
   this.maximumMoles++;                       // counts moles
@@ -55,8 +47,10 @@ randomBox() {
   }
 }
 
-pointClick() {
-
+pointClick(idx:number) {
+  this.scorePoints++;                         // count points
+  this.molegrid[idx] = !this.molegrid[idx]    // is it true = false, is it false = true. It hides the mole if it is shown
+  return this.scorePoints;                    // show the points to user
 }
 
 popDown(idx:number) {

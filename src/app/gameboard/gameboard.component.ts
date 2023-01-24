@@ -1,4 +1,3 @@
-import { createMayBeForwardRefExpression } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { GameService } from '../game.service';
 
@@ -9,7 +8,7 @@ import { GameService } from '../game.service';
 })
 export class GameboardComponent {
 
-  constructor(public __gameService:GameService) {}  // contact with Game Service
+  constructor(public __gameService:GameService) {}  // make it public to Game Service
 
 }
 

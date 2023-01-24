@@ -1,1 +1,0 @@
-export type Moles = { show: boolean };  // export data type

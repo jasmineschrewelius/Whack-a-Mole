@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { PanelComponent } from './panel/panel.component';
 import { GameboardComponent } from './gameboard/gameboard.component';
 import { GameService } from './game.service';
-import { MoleComponent } from './mole/mole.component';
 
 
 
@@ -14,7 +13,6 @@ import { MoleComponent } from './mole/mole.component';
     AppComponent,
     PanelComponent,
     GameboardComponent,
-    MoleComponent,
   ],
   imports: [
     BrowserModule,
